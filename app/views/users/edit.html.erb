@@ -18,18 +18,16 @@
   <% end %>
 
     プロフィール：
-    <%= @user.profile %>
-    <br/>
+    <%= f.text_area :profile %>
 
     メールアドレス：
-    <%= @user.email %>
-    <br/>
+    <%= f.text_field :email %>
     
     場所：
-    <%= @user.area %>
-    <br/>
+    <%= f.text_field :area %>
 
     ホームページ：
-    <%= link_to @user.homepage, @user.homepage %>
+    <%= f.text_field :homepage %>
   
+  <%= f.submit class: "btn btn-sm btn-primary" %>
 <% end %>
