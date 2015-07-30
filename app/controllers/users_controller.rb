@@ -2,7 +2,10 @@ class UsersController < ApplicationController
   before_action :show, only: [:edit, :update]
   
   def show # 追加
-   @user = User.find(params[:id])
+    # ユーザーを取得してセット
+    @user = User.find(params[:id])
+    # ユーザーに紐づくつぶやきをセット
+    @microposts = @user.microposts
   end
   
   def new

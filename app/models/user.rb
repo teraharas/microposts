@@ -6,4 +6,7 @@ class User < ActiveRecord::Base
                     format: { with: VALID_EMAIL_REGEX },
                     uniqueness: { case_sensitive: false }
   has_secure_password
+  
+  # ユーザーとつぶやきを定義  User：microposts = 1：n
+  has_many :microposts
 end
