@@ -8,6 +8,9 @@
     </section>
   </aside>
   <div class="col-md-8">
+    <!--ログインしていれば、フォロー画面へ-->
+    <%= render 'follow_form' if logged_in? %>
+    
     <% if @user.microposts.any? %>
       <h3>つぶやきぜんぶ見てみる？ (<%= @user.microposts.count %>)</h3>
       <ol class="microposts">
