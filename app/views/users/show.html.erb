@@ -20,38 +20,38 @@
   </div>
 </div>
 
-<!--<h1>-->
-<!--  <%= gravatar_for @user %>-->
-<!--  <%= @user.name %>-->
-<!--</h1>-->
+<h1>
+  <%= gravatar_for @user %>
+  <%= @user.name %>
+</h1>
 
-<!--<%= form_for(@user) do |f| %>-->
-<!--  <% if @user.errors.present? %>-->
-<!--    <div class="alert alert-danger">-->
-<!--      <%= alert %>-->
-<!--      <ul>-->
-<!--        <% @user.errors.full_messages.each do |full_message| %>-->
-<!--          <li>-->
-<!--            <%= full_message %>-->
-<!--          </li>-->
-<!--        <% end %> -->
-<!--      </ul>-->
-<!--    </div>-->
-<!--  <% end %>-->
+<%= form_for(@user) do |f| %>
+  <% if @user.errors.present? %>
+    <div class="alert alert-danger">
+      <%= alert %>
+      <ul>
+        <% @user.errors.full_messages.each do |full_message| %>
+          <li>
+            <%= full_message %>
+          </li>
+        <% end %> 
+      </ul>
+    </div>
+  <% end %>
 
-<!--    プロフィール：-->
-<!--    <%= @user.profile %>-->
-<!--    <br/>-->
+    プロフィール：
+    <%= @user.profile %>
+    <br/>
 
-<!--    メールアドレス：-->
-<!--    <%= @user.email %>-->
-<!--    <br/>-->
+    メールアドレス：
+    <%= @user.email %>
+    <br/>
     
-<!--    場所：-->
-<!--    <%= @user.area %>-->
-<!--    <br/>-->
+    場所：
+    <%= @user.area %>
+    <br/>
 
-<!--    ホームページ：-->
-<!--    <%= link_to @user.homepage, @user.homepage %>-->
+    ホームページ：
+    <%= link_to @user.homepage, @user.homepage %>
   
-<!--<% end %>-->
+<% end %>
