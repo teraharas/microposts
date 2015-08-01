@@ -8,10 +8,11 @@
     </section>
   </aside>
   
-  <!--フォロー一覧表示-->
+  <!--フォロー&フォロワー一覧表示-->
   <div class="col-md-8">
     <section>
       <% if @users.any? %>
+      <!--フォローなのか、フォロワーなのかを、「var」の引数で渡している-->
       <h3><%= var %> (<%= @users.count %>)</h3>
           <% @users.each do |user| %>
             <ol class="follows">
