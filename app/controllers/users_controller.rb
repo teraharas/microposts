@@ -8,9 +8,11 @@ class UsersController < ApplicationController
     @microposts = @user.microposts
   end
   
+  
   def new
     @user = User.new
   end
+  
   
   def create
     @user = User.new(user_params)
@@ -22,8 +24,23 @@ class UsersController < ApplicationController
     end
   end
   
+  
   def edit
     
+  end
+  
+  
+  def followings
+    @user = User.find(params[:id])
+    @users = @user.following_users
+    render 'followings'
+  end
+  
+  
+  def followers
+    @user = User.find(params[:id])
+    @users = @user.followed_users
+    render 'followers'
   end
   
   
@@ -37,6 +54,7 @@ class UsersController < ApplicationController
       render 'edit'
     end
   end
+
 
   private
 
