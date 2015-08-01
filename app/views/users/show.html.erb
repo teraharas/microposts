@@ -6,7 +6,6 @@
         <%= @user.name %>
       </h1>
     </section>
-  </aside>
   
   <%= form_for(@user) do |f| %>
   <% if @user.errors.present? %>
@@ -47,7 +46,8 @@
   <!--フォロワー一覧-->
   <h3>フォロワー (<%= @user.followed_relationships.count %>)</h3>
   <%= link_to "フォロワー一覧", followers_user_path(current_user) if logged_in? %>
-
+  </aside>
+  
   <!--ささやき一覧表示-->
   <div class="col-md-8">
     <!--ログインしていれば、フォロー画面へ-->
