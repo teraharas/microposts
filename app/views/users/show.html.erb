@@ -35,20 +35,19 @@
     <br/>
 
     ホームページ：
-    <%= link_to @user.homepage, @user.homepage %>
-  
+    <%= link_to @user.homepage, @user.homepage if @user.homepage != nil %>
+
   <% end %>
   
   
   <!--フォロー一覧-->
   <h3>フォロー (<%= @user.following_relationships.count %>)</h3>
-  <%= link_to "フォロー一覧", followings_user_path(current_user) %>
+  <%= link_to "フォロー一覧", followings_user_path(current_user) if logged_in? %>
   
   <!--フォロワー一覧-->
   <h3>フォロワー (<%= @user.followed_relationships.count %>)</h3>
-  <%= link_to "フォロワー一覧", followers_user_path(current_user) %>
-  
-  
+  <%= link_to "フォロワー一覧", followers_user_path(current_user) if logged_in? %>
+
   <!--ささやき一覧表示-->
   <div class="col-md-8">
     <!--ログインしていれば、フォロー画面へ-->
