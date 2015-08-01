@@ -14,10 +14,11 @@
     
     <!--フィードを表示-->
     <div class="col-md-8">
-      <h3>フィード</h3>
+      <h3>フィード (<%= @feed_items.count %>)</h3>
       <%= render 'shared/feed' %>
+      <!--ページネーション-->
+      <%= paginate(@feed_page) %>
     </div>
-    
   </div>
 
 <!--ログインしていない時-->

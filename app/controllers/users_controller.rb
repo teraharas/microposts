@@ -6,6 +6,10 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     # ユーザーに紐づくつぶやきをセット
     @microposts = @user.microposts
+    
+    # ページング追加
+    @microposts_page = Micropost.page(params[:page]).per(10).order(:id)
+    
   end
   
   

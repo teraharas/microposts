@@ -49,3 +49,5 @@ group :development, :test do
   gem 'spring'
 end
 
+# かみなり
+gem 'kaminari'

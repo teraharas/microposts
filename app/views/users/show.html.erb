@@ -59,5 +59,10 @@
         <%= render @microposts %>
       </ol>
     <% end %>
+    
+    <!--ページネーション-->
+    <%= paginate(@microposts_page) %>
+    
   </div>
 </div>
+
