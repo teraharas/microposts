@@ -53,3 +53,5 @@ end
 gem 'kaminari'
 # CarrierWave
 gem "carrierwave"
+# Cloudinary
+gem 'cloudinary'
