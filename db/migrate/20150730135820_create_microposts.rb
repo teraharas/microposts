@@ -6,7 +6,6 @@ class CreateMicroposts < ActiveRecord::Migration
 
       t.timestamps null: false
       
-      # Userテーブルと結合
       t.index [:user_id, :created_at]
     end
   end

@@ -1,0 +1,30 @@
+<% provide(:title, '全ユーザー') %>
+<h1>全ユーザー (<%= @users.count %>)</h1>
+
+<div class="row">
+  <div class="col-md-12">
+    <section>
+      <% if @users_page.any? %>
+          <% @users_page.each do |user| %>
+            <ol class="users">
+                <li>
+                  <span class="gravatar">
+                    <% if user.image? %>
+                      <%= link_to image_tag(user.image.url, {:size => '50x50'}), user %>
+                    <% else %>
+                      <%= link_to gravatar_for(user, size: 50), user %>
+                    <% end %>
+                  </span>
+                  <span class="user"><%= link_to user.name, user %></span>
+                  <span><%= user.profile %></span>
+                  <span><%= user.area %></span>
+                </li>
+            </ol>
+            <br/>
+          <% end %>
+      <% end %>
+    </section>
+    <!--ページネーション-->
+    <%= paginate(@users_page) %>
+  </div>
+</div>

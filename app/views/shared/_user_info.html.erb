@@ -1,4 +1,10 @@
-<%= link_to gravatar_for(current_user, size: 50), current_user %>
+<span class="gravatar">
+  <% if current_user.image? %>
+    <%= link_to image_tag(current_user.image.url, {:size => '50x50'}), current_user %>
+  <% else %>
+    <%= link_to gravatar_for(current_user, size: 50), current_user %>
+<% end %>
+</span>
 <h1><%= current_user.name %></h1>
 <span><%= link_to "自分の情報を見る！", current_user %></span>
 <span><%= current_user.microposts.count.to_s + " 個のささやきがあります。" %></span>

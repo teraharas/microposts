@@ -51,3 +51,5 @@ end
 
 # かみなり
 gem 'kaminari'
+# CarrierWave
+gem "carrierwave"
