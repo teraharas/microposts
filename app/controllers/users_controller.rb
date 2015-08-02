@@ -12,11 +12,9 @@ class UsersController < ApplicationController
     # ユーザーを取得してセット
     @user = User.find(params[:id])
     # ユーザーに紐づくつぶやきをセット
-    @microposts = @user.microposts
-    
+    @microposts = @user.microposts.order(created_at: :desc)
     # ページング追加
-    @microposts = @microposts.page(params[:page]).per(8).order(:id)
-    
+    @microposts = @microposts.page(params[:page]).per(8)
   end
   
 

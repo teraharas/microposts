@@ -6,7 +6,7 @@ class StaticPagesController < ApplicationController
       # フィード
       @feed_items = current_user.feed_items.includes(:user).order(created_at: :desc)
       # フィードのページング追加
-      @feed_items_page = @feed_items.page(params[:page]).per(8).order(:id)
+      @feed_items_page = @feed_items.page(params[:page]).per(8)
     end
   end
   

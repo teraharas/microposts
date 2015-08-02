@@ -3,5 +3,19 @@
   <div class="field">
     <%= f.text_area :content, placeholder: "今なにしてるの？ねえ、今なにしてるの？" %>
   </div>
+
+<!--画像アップロード処理開始-->
+  <div class="field">
+    <% if @micropost.image? %>
+      <div class="thumbnail">
+        <%= image_tag @micropost.image.url %>
+      </div>
+    <% end %><br>
+    <!--<%= f.label :image %><br>-->
+    <%= f.file_field :image %>
+    <%= f.hidden_field :image_cache %>
+  </div>
+<!--画像アップロード処理終了-->
+
   <%= f.submit "ささやく", class: "btn btn-primary" %>
 <% end %>
