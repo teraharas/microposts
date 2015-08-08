@@ -6,8 +6,6 @@ class FavoritesController < ApplicationController
         
         @favorite = current_user.favorites.build(micropost: @micropost)
         
-        flash[:notice] = "aaaaa" if @micropost.nil?
-        
         if @favorite.save
           redirect_to root_url, notice: "お気に入りに登録しました"
         else
@@ -19,7 +17,7 @@ class FavoritesController < ApplicationController
     def destroy
         @favorite = current_user.favorites.find_by!(micropost_id: params[:micropost_id])
         @favorite.destroy
-        redirect_to microposts_url, notice: "お気に入りを解除しました"
+        redirect_to root_url, notice: "お気に入りを解除しました"
     end
 
     private

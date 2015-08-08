@@ -51,9 +51,12 @@ class UsersController < ApplicationController
   end
   
   
+  # お気に入り
   def favorites
     @user = User.find(params[:id])
-    @microposts = @user.microposts.order(created_at: :desc)
+    @microposts = @user.favorite_microposts
+    # ページング追加
+    @microposts = @microposts.page(params[:page]).per(8)
   end
   
   

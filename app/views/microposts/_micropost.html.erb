@@ -19,10 +19,17 @@
     <!--削除-->
     <% if current_user == micropost.user %>
         <%= link_to "削除", micropost, method: :delete,
-                                       data: { confirm: "本当にささやきを消していいですか？" } %>
+                                       data: { confirm: "本当にささやきを消していいですか？" },
+                                       class: "label label-danger" %>
     <% end %>
     
     <!--お気に入り-->
-    <%= link_to "お気に入りに登録", micropost_favorites_path(micropost), method: :post %>
+    <% if micropost.favorited_by?(current_user) %>
+      <%= link_to "お気に入りを解除", micropost_favorite_path(micropost,micropost.user),
+                                          method: :delete, class: "label label-primary" %>
+    <% else %>
+      <%= link_to "お気に入りに登録", micropost_favorites_path(micropost),
+                                          method: :post, class: "label label-info" %>
+    <% end %>
   </span>
 </li>

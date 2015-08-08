@@ -1,19 +1,23 @@
 <!--ログイン時-->
 <% if logged_in? %>
   <div class="row">
-    <aside class="col-md-4">
-      <!--ユーザー情報-->
-      <section class="user_info">
-        <%= render 'shared/user_info' %>
-      </section>
-      <!--ささやき表示-->
-      <section class="micropost_form">
-        <%= render 'shared/micropost_form' %>
-      </section>
+    <aside class="col-md-5">
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <!--ユーザー情報-->
+          <section class="user_info">
+            <%= render 'shared/user_info' %>
+          </section>
+          <!--ささやき表示-->
+          <span class="micropost_form">
+            <%= render 'shared/micropost_form' %>
+          </span>
+        </div>
+      </div>
     </aside>
     
     <!--フィードを表示-->
-    <div class="col-md-8">
+    <div class="col-md-7">
       <h3>フィード (<%= @feed_items.count %>)</h3>
       <%= render 'shared/feed' %>
       <!--ページネーション-->

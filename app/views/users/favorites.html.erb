@@ -6,14 +6,14 @@
     <%= render 'follow_form' if logged_in? %>
     
     <% if @user.favorites.any? %>
-      <h3>ささやき一覧 (<%= @user.favorites.count %>)</h3>
+      <h1>お気に入りのささやき一覧 (<%= @user.favorites.count %>)</h1>
       <ol class="microposts">
-        <%= "aaaa" if @microposts.nil? %>
-        <%= render @user.favorites() %>
+        <%= render @microposts %>
       </ol>
     <% end %>
     
     <!--ページネーション-->
+    <%= paginate(@microposts) %>
     
   </div>
 </div>
