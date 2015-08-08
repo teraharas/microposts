@@ -1,0 +1,20 @@
+<div class="row">
+  
+  <!--ささやき一覧表示-->
+  <div class="col-md-12">
+    <!--ログインしていれば、フォロー画面へ-->
+    <%= render 'follow_form' if logged_in? %>
+    
+    <% if @user.favorites.any? %>
+      <h3>ささやき一覧 (<%= @user.favorites.count %>)</h3>
+      <ol class="microposts">
+        <%= "aaaa" if @microposts.nil? %>
+        <%= render @user.favorites() %>
+      </ol>
+    <% end %>
+    
+    <!--ページネーション-->
+    
+  </div>
+</div>
+

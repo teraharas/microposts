@@ -17,6 +17,7 @@ class User < ActiveRecord::Base
   
   # ユーザーとつぶやきを定義  User：microposts = 1：n
   has_many :microposts
+  has_many :favorites, dependent: :destroy
 
 
   has_many :following_relationships, class_name:  "Relationship",

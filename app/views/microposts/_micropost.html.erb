@@ -21,5 +21,8 @@
         <%= link_to "削除", micropost, method: :delete,
                                        data: { confirm: "本当にささやきを消していいですか？" } %>
     <% end %>
+    
+    <!--お気に入り-->
+    <%= link_to "お気に入りに登録", micropost_favorites_path(micropost), method: :post %>
   </span>
 </li>

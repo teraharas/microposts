@@ -16,7 +16,7 @@ class UsersController < ApplicationController
     # ページング追加
     @microposts = @microposts.page(params[:page]).per(8)
   end
-  
+
 
   def new
     @user = User.new
@@ -48,6 +48,12 @@ class UsersController < ApplicationController
   def followers
     @user = User.find(params[:id])
     @users = @user.followed_users
+  end
+  
+  
+  def favorites
+    @user = User.find(params[:id])
+    @microposts = @user.microposts.order(created_at: :desc)
   end
   
   

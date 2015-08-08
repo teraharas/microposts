@@ -52,7 +52,13 @@
   <!--フォロワー一覧-->
   <h3>フォロワー (<%= @user.followed_relationships.count %>)</h3>
   <%= link_to "フォロワー一覧", followers_user_path(current_user) if logged_in? %>
+  
+  <!--お気に入り一覧-->
+  <h3>お気に入り (<%= @user.favorites.count %>)</h3>
+  <%= link_to "お気に入り一覧", favorites_user_path(current_user) if logged_in? %>
   </aside>
+  
+  
   
   <!--ささやき一覧表示-->
   <div class="col-md-8">
