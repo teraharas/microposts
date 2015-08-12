@@ -24,8 +24,18 @@ ActiveRecord::Schema.define(version: 20150809134752) do
   add_index "favorites", ["user_id", "micropost_id", "created_at"], name: "index_favorites_on_user_id_and_micropost_id_and_created_at"
   add_index "favorites", ["user_id"], name: "index_favorites_on_user_id"
 
-# Could not dump table "microposts" because of following NoMethodError
-#   undefined method `[]' for nil:NilClass
+  create_table "microposts", force: :cascade do |t|
+    t.integer  "user_id"
+    t.text     "content"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.string   "image"
+    t.boolean  "remove_image"
+    t.string   "image_cache"
+  end
+
+  add_index "microposts", ["user_id", "created_at"], name: "index_microposts_on_user_id_and_created_at"
+  add_index "microposts", ["user_id"], name: "index_microposts_on_user_id"
 
   create_table "relationships", force: :cascade do |t|
     t.integer  "follower_id"
@@ -49,7 +59,20 @@ ActiveRecord::Schema.define(version: 20150809134752) do
   add_index "retweets", ["motomicropost_id"], name: "index_retweets_on_motomicropost_id"
   add_index "retweets", ["sakimicropost_id"], name: "index_retweets_on_sakimicropost_id"
 
-# Could not dump table "users" because of following NoMethodError
-#   undefined method `[]' for nil:NilClass
+  create_table "users", force: :cascade do |t|
+    t.string   "name"
+    t.string   "email"
+    t.string   "password_digest"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.string   "profile"
+    t.string   "area"
+    t.string   "homepage"
+    t.string   "image"
+    t.boolean  "remove_image"
+    t.string   "image_cache"
+  end
+
+  add_index "users", ["email"], name: "index_users_on_email", unique: true
 
 end

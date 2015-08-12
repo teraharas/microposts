@@ -8,17 +8,10 @@ class RetweetsController < ApplicationController
         @sakimicropost = Micropost.create(
             :user_id => current_user.id,
             :content => @motomicropost.content,
-            :image => @motomicropost.image.file,
+            :image => @motomicropost.image,
             :remove_image => @motomicropost.remove_image,
             :image_cache => @motomicropost.image_cache
         )
-        # @sakimicropost = Micropost.new
-        # @sakimicropost.attributes = @motomicropost.attributes
-
-        # ブレークポイント
-        # binding.pry
-        # @sakimicropost.save
-
 
         if !@sakimicropost.new_record?
         else
