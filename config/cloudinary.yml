@@ -1,21 +1,18 @@
 development:
-  cloud_name: hwn5gbtxx
-  api_key: '416728985782595'
-  api_secret: GiJARd7s49Sa3TFc5aM4aAJ9BY0
+  cloud_name: hyg37gaay
+  api_key: '723834534312468'
+  api_secret: mD2cUx9YK4-R7s9CmlhO_pvjyTU
   enhance_image_tag: true
   static_image_support: false
-  
 production:
-  cloud_name: hwn5gbtxx
-  api_key: '416728985782595'
-  api_secret: GiJARd7s49Sa3TFc5aM4aAJ9BY0
+  cloud_name: hyg37gaay
+  api_key: '723834534312468'
+  api_secret: mD2cUx9YK4-R7s9CmlhO_pvjyTU
   enhance_image_tag: true
   static_image_support: true
-
 test:
-  cloud_name: hwn5gbtxx
-  api_key: '416728985782595'
-  api_secret: GiJARd7s49Sa3TFc5aM4aAJ9BY0
+  cloud_name: hyg37gaay
+  api_key: '723834534312468'
+  api_secret: mD2cUx9YK4-R7s9CmlhO_pvjyTU
   enhance_image_tag: true
   static_image_support: false
-
