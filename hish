@@ -1,0 +1,28 @@
+=> [32m#<ImageUploader:0x007fad76867308[0m
+ @file[32m=[0m
+  [32m#<Cloudinary::CarrierWave::CloudinaryFile:0x007fad768670d8[0m
+   @filename[32m=[0m[31m[1;31m"[0m[31mafppag4puzkmr1t3ipwj.png[1;31m"[0m[31m[0m,
+   @format[32m=[0m[31m[1;31m"[0m[31mpng[1;31m"[0m[31m[0m,
+   @identifier[32m=[0m[31m[1;31m"[0m[31mimage/upload/v1439305606/afppag4puzkmr1t3ipwj.png[1;31m"[0m[31m[0m,
+   @public_id[32m=[0m[31m[1;31m"[0m[31mafppag4puzkmr1t3ipwj[1;31m"[0m[31m[0m,
+   @resource_type[32m=[0m[31m[1;31m"[0m[31mimage[1;31m"[0m[31m[0m,
+   @storage_type[32m=[0m[31m[1;31m"[0m[31mupload[1;31m"[0m[31m[0m,
+   @uploader[32m=[0m[32m#<ImageUploader:0x007fad76867308[0m ...[32m>[0m,
+   @version[32m=[0m[31m[1;31m"[0m[31m1439305606[1;31m"[0m[31m[0m[32m>[0m,
+ @model[32m=[0m
+  [32m#<Micropost:0x007fad76867510[0m
+   id: [1;34m6[0m,
+   user_id: [1;34m2[0m,
+   content: [31m[1;31m"[0m[31m画像アップロード。[1;31m"[0m[31m[0m,
+   created_at: [1;34;4mTue[0m, [1;34m11[0m [1;34;4mAug[0m [1;34m2015[0m [1;34m15[0m:[1;34m06[0m:[1;34m45[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m,
+   updated_at: [1;34;4mTue[0m, [1;34m11[0m [1;34;4mAug[0m [1;34m2015[0m [1;34m15[0m:[1;34m06[0m:[1;34m45[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m,
+   image: [31m[1;31m"[0m[31mimage/upload/v1439305606/afppag4puzkmr1t3ipwj.png[1;31m"[0m[31m[0m,
+   remove_image: [1;36mnil[0m,
+   image_cache: [1;36mnil[0m[32m>[0m,
+ @mounted_as[32m=[0m[33m:image[0m,
+ @original_filename[32m=[0m[31m[1;31m"[0m[31mafppag4puzkmr1t3ipwj.png[1;31m"[0m[31m[0m,
+ @public_id[32m=[0m[31m[1;31m"[0m[31mafppag4puzkmr1t3ipwj[1;31m"[0m[31m[0m,
+ @storage[32m=[0m
+  [32m#<Cloudinary::CarrierWave::Storage:0x007fad76866d90[0m @uploader[32m=[0m[32m#<ImageUploader:0x007fad76867308[0m ...[32m>[0m[32m>[0m,
+ @stored_public_id[32m=[0m[31m[1;31m"[0m[31mafppag4puzkmr1t3ipwj[1;31m"[0m[31m[0m,
+ @stored_version[32m=[0m[31m[1;31m"[0m[31m1439305606[1;31m"[0m[31m[0m[32m>[0m

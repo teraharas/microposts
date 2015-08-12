@@ -1,17 +1,56 @@
 <li id="micropost-<%= micropost.id %>">
   <span class="gravatar">
-    <% if micropost.user.image? %>
+    <!--変数を宣言・初期化-->
+    <% @retweet_status = "" %>
+    <% @moto_id = nil %>
+    
+    <% if @retweetAll != nil %>
+      <% @retweetAll.each do |retweet| %>
+        <!--このささやきが、リツート先であれば、リツート状態をONにする。-->
+        <% if retweet.sakimicropost_id == micropost.id %>
+          <% @retweet_status = 1 %>
+          <!--リツート元のIDを保持-->
+          <% @moto_id = @micropostAll[retweet.motomicropost_id - 1].user_id %>
+          
+          <% # binding.pry %>
+        
+        <% end %>
+      <% end %>
+    <% end %>
+    
+    <!--リツート先の時-->
+    <% if @retweet_status == 1 %>
+      <% if @userAll[@moto_id - 1].image? %>
+        <%= link_to image_tag(@userAll[@moto_id - 1].image.url, {:size => '50x50'}), @userAll[@moto_id - 1] %>
+      <% else %>
+        <%= link_to gravatar_for(@userAll[@moto_id - 1], size: 50), @userAll[@moto_id - 1] %>
+      <% end %>
+    <% elsif micropost.user.image? %>
       <%= link_to image_tag(micropost.user.image.url, {:size => '50x50'}), micropost.user %>
     <% else %>
       <%= link_to gravatar_for(micropost.user, size: 50), micropost.user %>
     <% end %>
   </span>
-  <span class="user"><%= link_to micropost.user.name, micropost.user %></span>
-  <span class="content"><%= micropost.content %></span>
   
+  <!--リツイート先のささやき表示時-->
+  <% if @retweet_status == 1 %>
+    <span class="user">
+      <% if @userAll[@moto_id - 1] != nil %>
+        <%= link_to @userAll[@moto_id - 1].name, @userAll[@moto_id - 1] %>
+      <% end %>
+      <span class="retweet"><%= micropost.user.name %>さんがリツイート</span>
+    </span>
+    <span class="content"><%= micropost.content %></span>
+  <% else %>
+    <span class="user"><%= link_to micropost.user.name, micropost.user %></span>
+    <span class="content"><%= micropost.content %></span>
+  <% end %>  
+  
+  <!--ささやきの写真があるとき-->
   <% if micropost.image? %>
     <%= image_tag micropost.image.url, {:width => '300px', :height => 'auto'} %>
   <% end %>
+  
   
   <span class="timestamp">
     <%= time_ago_in_words(micropost.created_at) %> 前に投稿されました。
@@ -31,5 +70,20 @@
       <%= link_to "お気に入りに登録", micropost_favorites_path(micropost),
                                           method: :post, class: "label label-info" %>
     <% end %>
+    
+    <!--リツイートボタン-->
+    <% if micropost.retweeted_by?(micropost) %>
+      <%= link_to "リツイート解除", micropost_retweet_path(micropost, micropost),
+                                          method: :delete, class: "label label-primary" %>
+    <% else %>
+      <% if micropost.user_id == current_user.id %>
+        <!--自分のささやきはリツイートできないようにする。-->
+      <% else %>
+      <%= link_to "リツイート", micropost_retweets_path(micropost),
+                                          method: :post, class: "label label-info" %>
+      <% end %>
+    <% end %>
+  
   </span>
+  
 </li>

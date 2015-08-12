@@ -7,6 +7,11 @@ class StaticPagesController < ApplicationController
       @feed_items = current_user.feed_items.includes(:user).order(created_at: :desc)
       # フィードのページング追加
       @feed_items_page = @feed_items.page(params[:page]).per(8)
+      
+      # ユーザーとリツイート情報をすべて取得する。
+      @userAll = User.all
+      @retweetAll = Retweet.all
+      @micropostAll = Micropost.all
     end
   end
   
