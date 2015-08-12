@@ -4,15 +4,18 @@ development:
   api_secret: GiJARd7s49Sa3TFc5aM4aAJ9BY0
   enhance_image_tag: true
   static_image_support: false
+  
 production:
   cloud_name: hwn5gbtxx
   api_key: '416728985782595'
   api_secret: GiJARd7s49Sa3TFc5aM4aAJ9BY0
   enhance_image_tag: true
   static_image_support: true
+
 test:
   cloud_name: hwn5gbtxx
   api_key: '416728985782595'
   api_secret: GiJARd7s49Sa3TFc5aM4aAJ9BY0
   enhance_image_tag: true
   static_image_support: false
+
