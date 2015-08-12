@@ -1,5 +1,5 @@
 class AddImageToUser < ActiveRecord::Migration
   def change
-    add_column :users, :image, :file
+    add_column :users, :image, :string
   end
 end
