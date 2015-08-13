@@ -10,9 +10,9 @@
         <% if retweet.sakimicropost_id == micropost.id %>
           <% @retweet_status = 1 %>
           <!--リツート元のIDを保持-->
-          <% @moto_id = @micropostAll[retweet.motomicropost_id - 1].user_id %>
-          
-          <% # binding.pry %>
+        
+          <!--元つぶやき情報を取得-->
+          <% @moto_micropost = @micropostAll[retweet.motomicropost_id - 1] %>
         
         <% end %>
       <% end %>
@@ -20,10 +20,10 @@
     
     <!--リツート先の時-->
     <% if @retweet_status == 1 %>
-      <% if @userAll[@moto_id - 1].image? %>
-        <%= link_to image_tag(@userAll[@moto_id - 1].image.url, {:size => '50x50'}), @userAll[@moto_id - 1] %>
+      <% if @userAll[@moto_micropost.user_id - 1].image? %>
+        <%= link_to image_tag(@userAll[@moto_micropost.user_id - 1].image.url, {:size => '50x50'}), @userAll[@moto_micropost.user_id - 1] %>
       <% else %>
-        <%= link_to gravatar_for(@userAll[@moto_id - 1], size: 50), @userAll[@moto_id - 1] %>
+        <%= link_to gravatar_for(@userAll[@moto_micropost.user_id - 1], size: 50), @userAll[@moto_micropost.user_id - 1] %>
       <% end %>
     <% elsif micropost.user.image? %>
       <%= link_to image_tag(micropost.user.image.url, {:size => '50x50'}), micropost.user %>
@@ -35,23 +35,27 @@
   <!--リツイート先のささやき表示時-->
   <% if @retweet_status == 1 %>
     <span class="user">
-      <% if @userAll[@moto_id - 1] != nil %>
-        <%= link_to @userAll[@moto_id - 1].name, @userAll[@moto_id - 1] %>
-      <% end %>
-      <span class="retweet"><%= micropost.user.name %>さんがリツイート</span>
+      <%= link_to @userAll[@moto_micropost.user_id - 1].name, @userAll[@moto_micropost.user_id - 1] %>
+      <span class="retweet">　<%= micropost.user.name %>さんがリツイートしました。</span>
     </span>
-    <span class="content"><%= micropost.content %></span>
+    <span class="content"><%= @moto_micropost.content %></span>
+    <!--ささやきの写真があるとき-->
+    <% if @moto_micropost.image? %>
+      <%= image_tag @moto_micropost.image.url, {:width => '300px', :height => 'auto'} %>
+    <% end %>
   <% else %>
+  <!--通常のツイートのとき-->
     <span class="user"><%= link_to micropost.user.name, micropost.user %></span>
     <span class="content"><%= micropost.content %></span>
-  <% end %>  
-  
-  <!--ささやきの写真があるとき-->
-  <% if micropost.image? %>
-    <%= image_tag micropost.image.url, {:width => '300px', :height => 'auto'} %>
+    <!--ささやきの写真があるとき-->
+    <% if micropost.image? %>
+      <%= image_tag micropost.image.url, {:width => '300px', :height => 'auto'} %>
+    <% end %>
   <% end %>
   
-  
+  <!--ブレークポイント-->
+  <% #binding.pry %>
+
   <span class="timestamp">
     <%= time_ago_in_words(micropost.created_at) %> 前に投稿されました。
     

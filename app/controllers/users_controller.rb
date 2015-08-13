@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :show, only: [:edit, :update]
+  before_action :get_AllData, only: [:index, :show, :favorites]
   
   def index
     @users = User.all
@@ -78,6 +79,14 @@ class UsersController < ApplicationController
     params.require(:user).permit(:name, :email, :password,
                                  :password_confirmation, :profile, :area, :homepage, 
                                  :image, :image_cache, :remove_image )
+  end
+  
+  
+  def get_AllData
+      # ユーザーとリツイート情報をすべて取得する。
+      @userAll = User.all
+      @retweetAll = Retweet.all
+      @micropostAll = Micropost.all
   end
 
 end

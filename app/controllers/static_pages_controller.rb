@@ -14,5 +14,4 @@ class StaticPagesController < ApplicationController
       @micropostAll = Micropost.all
     end
   end
-  
 end
