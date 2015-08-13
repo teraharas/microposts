@@ -1,18 +1,21 @@
 class Micropost < ActiveRecord::Base
   belongs_to :user
   
+  # お気に入り
   has_many :favorites, dependent: :destroy
   has_many :favorite_microposts, through: :favorites, source: :micropost
   
-  has_many :saki_retweets, class_name:  "Retweet",
-                                    foreign_key: "sakimicropost_id",
-                                    dependent:   :destroy
-  has_many :saki_microposts, through: :saki_retweets, source: :sakimicropost
-  
+  # リツイート元
   has_many :moto_retweets, class_name:  "Retweet",
                                      foreign_key: "motomicropost_id",
                                      dependent:   :destroy
   has_many :moto_microposts, through: :moto_retweets, source: :motomicropost
+  
+  # リツイート先
+  has_many :saki_retweets, class_name:  "Retweet",
+                                    foreign_key: "sakimicropost_id",
+                                    dependent:   :destroy
+  has_many :saki_microposts, through: :saki_retweets, source: :sakimicropost
 
   
   # 画像アップロード
