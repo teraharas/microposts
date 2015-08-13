@@ -1,8 +1,8 @@
 class CreateRetweets < ActiveRecord::Migration
   def change
     create_table :retweets do |t|
-      t.references :motomicropost, index: true, foreign_key: true
-      t.references :sakimicropost, index: true, foreign_key: true
+      t.references :motomicropost, index: true
+      t.references :sakimicropost, index: true
 
       t.timestamps null: false
       
