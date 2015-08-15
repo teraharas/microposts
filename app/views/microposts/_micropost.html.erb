@@ -13,13 +13,13 @@
         
           <!--元つぶやき情報を取得-->
           <% @moto_micropost = @micropostAll[retweet.motomicropost_id - 1] %>
-        
+          
         <% end %>
       <% end %>
     <% end %>
     
     <!--リツート先の時-->
-    <% if @retweet_status == 1 %>
+    <% if @retweet_status == 1 && @moto_micropost != nil %>
       <% if @userAll[@moto_micropost.user_id - 1].image? %>
         <%= link_to image_tag(@userAll[@moto_micropost.user_id - 1].image.url, {:size => '50x50'}), @userAll[@moto_micropost.user_id - 1] %>
       <% else %>
@@ -33,7 +33,7 @@
   </span>
   
   <!--リツイート先のささやき表示時-->
-  <% if @retweet_status == 1 %>
+  <% if @retweet_status == 1 && @moto_micropost != nil %>
     <span class="user">
       <%= link_to @userAll[@moto_micropost.user_id - 1].name, @userAll[@moto_micropost.user_id - 1] %>
       <span class="retweet">　<%= micropost.user.name %>さんがリツイートしました。</span>
@@ -52,9 +52,6 @@
       <%= image_tag micropost.image.url, {:width => '300px', :height => 'auto'} %>
     <% end %>
   <% end %>
-  
-  <!--ブレークポイント-->
-  <% #binding.pry %>
 
   <span class="timestamp">
     <%= time_ago_in_words(micropost.created_at) %> 前に投稿されました。
